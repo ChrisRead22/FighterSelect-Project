@@ -32,7 +32,7 @@ fighter3t = Fighter.create(name: "Noctis", fight_style: "Zoner")
 
 
 fighter_select = FighterSelect.create(player_id: player1.id, fighter_id: fighter1s.id )
-FighterSelect.create(player_id: player3.id, fighter_id: fighter2m.id )
+fighter_select = FighterSelect.create(player_id: player3.id, fighter_id: fighter2m.id )
 
 # # 2. Mass create -- in order to connect them later IN SEEDS (not through the app) you'll need to find their id
 # ## a. by passing an array of hashes:
