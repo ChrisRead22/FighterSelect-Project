@@ -1,16 +1,16 @@
 class FighterSelectApp
 
-  attr_reader :player 
+  attr_accessor :player 
 
   def run
     welcome
-    login_or_signup
+    @player = login_or_signup
     fighting_game
     main_menu
     #fightstyle_list
   end
 
-  private
+  #private
 
   def welcome
     puts "Having a hardtime selecing a Fighter ??? 
@@ -21,30 +21,36 @@ class FighterSelectApp
 
   def login_or_signup
     puts "Use Your Name to Login or Sign-up"
-    answer = gets.chomp.downcase
+    answer = STDIN.gets.chomp.downcase
     @player = Player.find_or_create_by(name: answer)
     sleep(1)
     puts "All good, #{@player.name.capitalize}"
-    #binding.pry
+    @player
   end
 
   def main_menu
     sleep(1)
     puts "To choose FIGHT STYLE, enter 'fightstyle' "
     puts "To update FIGHTING GAME enter 'update' "
+    puts "To delete Login enter 'delete' "
     puts "To EXIT, enter 'exit' "
-    input = gets.strip.downcase
+    input = STDIN.gets.strip.downcase
 
     if input == "fightstyle"
       fightstyle_list
       main_menu
     elsif input == "update"
-      puts "what fighting game are you on now ?"
-      updated = gets.chomp.downcase
-      puts "UPDATING..."
-      sleep(1)
-      puts "UPDATED"
-      main_menu
+      # puts "what fighting game are you on now ?"
+      # updated = STDIN.gets.chomp.downcase
+      # puts "UPDATING..."
+      # sleep(1)
+      # puts "UPDATED"
+      fighting_game 
+
+      elsif input == "delete"
+        @player.destroy
+        login_or_signup
+        
     elsif input == "exit"
       puts "Goodbye, #{@player.name.capitalize}"
     else
@@ -60,13 +66,7 @@ class FighterSelectApp
     puts "1. Standard"
     puts "2. Zoner "
     puts "3. Grappler"
-    input = gets.strip.downcase
-
-    fightstyle_select(input)
-  end
-
-  def fightstyle_select(fightstyle)
-    
+    input = STDIN.gets.strip.downcase
 
   end
 
@@ -74,8 +74,10 @@ class FighterSelectApp
   def fighting_game
     sleep(1.5)
     puts "What fighting game are you on ?"
-    answer = gets.chomp.downcase
+    answer = STDIN.gets.chomp.downcase
+    @player.update(fighting_game: answer) 
     sleep(1)
+    main_menu
   end
 
   

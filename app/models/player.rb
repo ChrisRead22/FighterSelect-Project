@@ -4,7 +4,10 @@ class Player < ActiveRecord::Base
 
 end
 
-def selected_fighters
-    fighter_history = self.fighters.where(history: true)
-    fighter_history.map{|select|select.fighter}.uniq
-end
+# def selected_fighters
+#     fighter_history = self.fighters.where(history: true)
+#     fighter_history.map{|select|select.fighter}.uniq
+# end
+
+# def delete_history
+# end
