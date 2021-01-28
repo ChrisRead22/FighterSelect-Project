@@ -7,7 +7,7 @@ class FighterSelectApp
     @player = login_or_signup
     fighting_game
     main_menu
-    #fightstyle_list
+    fightstyle_list
   end
 
   #private
@@ -62,14 +62,22 @@ class FighterSelectApp
   end
 
   def fightstyle_list
-    puts "CHOOSE YOUR FIGHT STYLE"
+    puts "CHOOSE A FIGHTER"
     puts ""
     puts ""
-    puts "1. Standard"
-    puts "2. Zoner "
-    puts "3. Grappler"
+    puts "Ryu"
+    puts "Dhalsim"
+    puts "Zangief"
     input = STDIN.gets.strip.downcase
 
+    # if input == "Ryu"
+  
+
+
+  end
+
+  def see_all_my_fighters
+    @player.reload
   end
 
 
@@ -84,5 +92,5 @@ class FighterSelectApp
 
   
 
-  
+
 end
