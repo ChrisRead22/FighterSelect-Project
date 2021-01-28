@@ -39,6 +39,7 @@ class FighterSelectApp
     if input == "fightstyle"
       fightstyle_list
       main_menu
+      
     elsif input == "update"
       # puts "what fighting game are you on now ?"
       # updated = STDIN.gets.chomp.downcase
@@ -49,8 +50,9 @@ class FighterSelectApp
 
       elsif input == "delete"
         @player.destroy
+        puts "DELETED LOGIN"
         login_or_signup
-        
+
     elsif input == "exit"
       puts "Goodbye, #{@player.name.capitalize}"
     else
@@ -72,7 +74,7 @@ class FighterSelectApp
 
 
   def fighting_game
-    sleep(1.5)
+    sleep(1)
     puts "What fighting game are you on ?"
     answer = STDIN.gets.chomp.downcase
     @player.update(fighting_game: answer) 
