@@ -1,6 +1,7 @@
 class FighterSelectApp
 
   attr_accessor :player 
+  attr_reader :fighter 
 
   def run
     welcome
@@ -65,16 +66,19 @@ class FighterSelectApp
     puts "CHOOSE A FIGHTER"
     puts ""
     puts ""
-    puts "Ryu"
+    #puts "Ryu"
     puts "Dhalsim"
     puts "Zangief"
+    
+    @player.name.fighters
+    
     input = STDIN.gets.strip.downcase
 
-    # if input == "Ryu"
-  
+      fighter = Fighter.find_by(name: input)
+      sleep(1)
+      puts "This fighters Fight Style is '#{fighter.fight_style}' "
 
-
-  end
+end
 
   def see_all_my_fighters
     @player.reload
@@ -87,7 +91,7 @@ class FighterSelectApp
     answer = STDIN.gets.chomp.downcase
     @player.update(fighting_game: answer) 
     sleep(1)
-    main_menu
+    
   end
 
   

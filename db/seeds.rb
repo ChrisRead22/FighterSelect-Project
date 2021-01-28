@@ -20,7 +20,7 @@ player1 = Player.create(name: "chris", fighting_game: "Street Fighter")
 player2 = Player.create(name: "kaytlin", fighting_game: "Marvel vs Capcom")
 player3 = Player.create(name: "J", fighting_game: "Tekken")
 
-fighter1s = Fighter.create(name: "Ryu", fight_style: "Standard", image:"https://upload.wikimedia.org/wikipedia/en/e/e5/Ryu_TvC.png" )
+fighter1s = Fighter.create(name: "ryu", fight_style: "Standard", image:"https://upload.wikimedia.org/wikipedia/en/e/e5/Ryu_TvC.png" )
 fighter2s = Fighter.create(name: "Dhalsim", fight_style: "Zoner")
 fighter3s = Fighter.create(name: "Zangief", fight_style: "Grappler")
 fighter1m = Fighter.create(name: "Dr.Doom", fight_style: "Zoner")
